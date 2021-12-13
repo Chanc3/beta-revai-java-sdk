@@ -13,19 +13,27 @@ import java.util.List;
  */
 public class RevAiJobOptions {
 
-  /** The media url where the file can be downloaded. */
+  /**
+   * The media url where the file can be downloaded.
+   */
   @SerializedName("media_url")
   private String mediaUrl;
 
-  /** The callback url that Rev.ai will send a POST to when the job has finished. */
+  /**
+   * The callback url that Rev.ai will send a POST to when the job has finished.
+   */
   @SerializedName("callback_url")
   private String callbackUrl;
 
-  /** Optional parameter for the speech engine to skip diarization. */
+  /**
+   * Optional parameter for the speech engine to skip diarization.
+   */
   @SerializedName("skip_diarization")
   private Boolean skipDiarization;
 
-  /** Optional parameter for the speech engine to skip punctuation. */
+  /**
+   * Optional parameter for the speech engine to skip punctuation.
+   */
   @SerializedName("skip_punctuation")
   private Boolean skipPunctuation;
 
@@ -36,7 +44,9 @@ public class RevAiJobOptions {
   @SerializedName("speaker_channels_count")
   private Integer speakerChannelsCount;
 
-  /** Optional array of {@link CustomVocabulary} objects. */
+  /**
+   * Optional array of {@link CustomVocabulary} objects.
+   */
   @SerializedName("custom_vocabularies")
   private List<CustomVocabulary> customVocabularies;
 
@@ -70,6 +80,12 @@ public class RevAiJobOptions {
    */
   @SerializedName("language")
   private String language;
+
+  /**
+   * Specifies which transcription engine to use
+   */
+  @SerializedName("transcriber")
+  private String transcriber;
 
   /**
    * Returns the media url.
@@ -276,5 +292,24 @@ public class RevAiJobOptions {
    *
    * @param language ISO 639-1 2-letter language code of desired ASR language.
    */
-  public void setLanguage(String language) { this.language = language; }
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  /**
+   * Specifies the transcription engine to be used
+   *
+   * @return the name of the transcription model
+   */
+  public String getTranscriber() {
+    return transcriber;
+  }
+  /**
+   * Specifies the transcription engine to be used
+   *
+   * @param transcriber the name of the transcription model
+   */
+  public void setTranscriber(String transcriber) {
+    this.transcriber = transcriber;
+  }
 }
